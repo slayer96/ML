@@ -33,7 +33,8 @@ model.compile(loss='categorical_crossentropy', optimizer="SGD", metrics=["accura
 print(model.summary())
 
 # network training
-model.fit(X_train, y_train, batch_size=200, nb_epoch=100, verbose=1)
+# validation_split - 20% of data is test sample
+model.fit(X_train, y_train, batch_size=200, nb_epoch=100, validation_split=0.2, verbose=1)
 
 # transformation output from category to class label(digits from 0 to 9)
 predictions = model.predict(X_train)
